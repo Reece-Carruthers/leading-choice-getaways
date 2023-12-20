@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="styles.css" rel="stylesheet">
+    <!-- Link below links a font that is used for the hamburger icon -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script src="hamburger.js"></script>
+    <title>Leading Choice Getaways - Credits Page</title>
+</head>
+<body>
+<header>
+    <!-- Desktop header only shown on desktop screens -->
+    <h1 id="desktopHeader"><span>L</span>eading <span>C</span>hoice <span>G</span>etaways</h1>
+    <!-- Mobile navigation menu, hidden on desktop/tablet screens -->
+    <div class="mobileNav">
+        <a href="javascript:void(0);" class="hamburgerIcon" onclick="hamburgerShow()">
+            <i class="fa fa-bars"></i>
+        </a> <h1 id="mobileHeader"><span>L</span>eading <span>C</span>hoice <span>G</span>etaways</h1>
+        <div id="hamburgerLinks">
+            <a href="index.html">Home</a>
+            <a href="viewHolidays.php">View Holidays</a>
+            <a href="admin.html">Admin</a>
+            <a href="credits.html">Credits</a>
+            <a href="WebsiteWireframes.pdf">Wireframes</a>
+        </div>
+    </div>
+</header>
+<div class="whiterectangle"> <!-- This is obly shown on desktop the css isnt used on mobile so the element does not need to be set to display none -->
+    <main>
+        <!-- Desktop navigation menu, hidden on mobile screens -->
+        <nav id="navbar">
+            <a href="index.html" id="home">Home</a>
+            <a href="viewHolidays.php" id="view_holidays">View Holidays</a>
+            <a href="admin.html" id="admin">Admin</a>
+            <a href="credits.html" id="credits">Credits</a>
+            <a href="WebsiteWireframes.pdf" id="wireframes">Wireframes</a>
+        </nav>
+        <h2 class="creditsHeader">Credits Page</h2>
+        <div class="references">
+            <h3>References</h3>
+            <p>Paglinawan, A., 2019. Google Fonts. [online] Google Fonts. Available at: https://fonts.google.com/specimen/Quicksand> [Accessed 12 May 2021]. - Google Font that I use for the default font of the webpage</p>
+            <p>Delanoix, A., 2015. Photo by Anthony DELANOIX on Unsplash. [online] Unsplash.com. Available at: https://unsplash.com/photos/QAwciFlS1g4> [Accessed 12 May 2021]. - Paris Photograph</p>
+            <p>Schwarz, C., 2019. Photo by Claudio Schwarz | @purzlbaum on Unsplash. [online] Unsplash.com. Available at: https://unsplash.com/photos/TScGhJM716g> [Accessed 12 May 2021]. - Berlin Photograph</p>
+            <p>Dang, E., 2017. Photo by Eva Dang on Unsplash. [online] Unsplash.com. Available at: https://unsplash.com/photos/EXdXLrZXS9Q> [Accessed 12 May 2021]. - London Photograph</p>
+            <p>Rossi, E., 2021. Photo by Eveline Rossi on Unsplash. [online] Unsplash.com. Available at: https://unsplash.com/photos/teA_8CdXKS4> [Accessed 12 May 2021]. - Magaluf Photograph</p>
+            <p>Parulava, M., 2019. Photo by Michael Parulava on Unsplash. [online] Unsplash.com. Available at: https://unsplash.com/photos/L4jrg4c7928> [Accessed 12 May 2021]. - Moscow Photograph</p>
+            <p>Olichon, A., 2018. Photo by Adrien Olichon on Unsplash. [online] Unsplash.com. Available at: https://unsplash.com/photos/QRtym77B6xk> [Accessed 12 May 2021]. - Amsterdam Photograph</p>
+            <p>van de Schootbrugge, S., 2021. Photo by Stephan van de Schootbrugge on Unsplash. [online] Unsplash.com. Available at: https://unsplash.com/photos/HXDBX1eNMnk> [Accessed 12 May 2021]. - Caribbean Photograph</p>
+            <P>Bayliss, D., 2021. Photo by David Bayliss on Unsplash. [online] Unsplash.com. Available at: https://unsplash.com/photos/u5szL88V1f0> [Accessed 12 May 2021]. - Mediterranean Photograph</P>
+            <p>Jorge, F., 2020. Photo by Fernando Jorge on Unsplash. [online] Unsplash.com. Available at: https://unsplash.com/photos/cRQYPtbLLew> [Accessed 12 May 2021]. - Bahamas Photograph</p>
+            <p>Cloudflare. 2021. Why is HTTP not secure?. [online] Available at: https://www.cloudflare.com/en-gb/learning/ssl/why-is-http-not-secure/> [Accessed 23 May 2021].</p>
+            <p>Ico.org.uk. 2021. Encryption. [online] Available at: https://ico.org.uk/for-organisations/guide-to-data-protection/guide-to-the-general-data-protection-regulation-gdpr/security/encryption/> [Accessed 23 May 2021].</p>
+            <p>Owasp.org. 2021. SQL Injection | OWASP. [online] Available at: https://owasp.org/www-community/attacks/SQL_Injection> [Accessed 23 May 2021].</p>
+        </div>
+        <div class="webSecurity">
+            <h3>Security Considerations</h3>
+            <p>
+                Additional security considerations the website could take is to use HTTPS instead of HTTP this is so all request and responses are encrypted (Why is HTTP not secure?, 2021) this would prevent an attacker from seeing sensitive data in plain text during an attack, the GDPR requires you that "to implement appropriate technical and organisational measures to ensure you process personal data securely." (Encryption, 2021) and a website such as Leading Choice Getaways will more than likely take payments and have user accounts with personal details so this would be a must.
+            </p>
+            <p>
+                Another security consideration they could take is using prepared statements within SQL code this is to prevent SQL injection. If SQL injection was to occur a hacker could potential destroy or view sensitive data (SQL Injection | OWASP, 2021) and protecting against this is a rule within the GDPR which was quoted above (required to implement appropriate technical and organisational measures to ensure you process personal data securely." (Encryption, 2021)).
+            </p>
+        </div>
+        <footer class="creditsFooter">
+            <h4>Website made by Reece Carruthers (w19011575) reece.carruthers@northumbria.ac.uk</h4>
+        </footer>
+        <div class="separatorDivCredits"></div>
+    </main>
+</div>
+</body>
+</html>

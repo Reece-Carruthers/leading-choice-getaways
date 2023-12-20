@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="styles.css" rel="stylesheet">
+    <!-- Link below links a font that is used for the hamburger icon -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script src="hamburger.js"></script>
+    <meta name="description" content="Leading Choice Getaways provides affordable and Luxury holidays">
+    <title>Leading Choice Getaways - Admin Page</title>
+</head>
+<body>
+<header>
+    <!-- Desktop header only shown on desktop screens -->
+    <h1 id="desktopHeader"><span>L</span>eading <span>C</span>hoice <span>G</span>etaways</h1>
+    <!-- Mobile navigation menu, hidden on desktop/tablet screens -->
+    <div class="mobileNav">
+        <a href="javascript:void(0);" class="hamburgerIcon" onclick="hamburgerShow()">
+            <i class="fa fa-bars"></i>
+        </a> <h1 id="mobileHeader"><span>L</span>eading <span>C</span>hoice <span>G</span>etaways</h1>
+        <div id="hamburgerLinks">
+            <a href="index.html">Home</a>
+            <a href="viewHolidays.php">View Holidays</a>
+            <a href="admin.html">Admin</a>
+            <a href="credits.html">Credits</a>
+            <a href="WebsiteWireframes.pdf">Wireframes</a>
+        </div>
+    </div>
+</header>
+<div class="whiterectangle"> <!-- This is obly shown on desktop the css isnt used on mobile so the element does not need to be set to display none -->
+    <main>
+        <!-- Desktop navigation menu, hidden on mobile screens -->
+        <nav id="navbar">
+            <a href="index.html" id="home">Home</a>
+            <a href="viewHolidays.php" id="view_holidays">View Holidays</a>
+            <a href="admin.html" id="admin">Admin</a>
+            <a href="credits.html" id="credits">Credits</a>
+            <a href="WebsiteWireframes.pdf" id="wireframes">Wireframes</a>
+        </nav>
+        <!-- Header of the admin page -->
+        <h2 class="adminHeader">Admin Page</h2>
+        <!-- Form elements to add a holiday to the SQL database -->
+        <form class="addHolidayForm" action="holidayProcess.php" method="post">
+            <!-- Title of the form -->
+            <label id="holidayLegend" aria-label="Add a Holiday Form">Add a Holiday</label>
+            <!-- Labels paried with their relevant entry adding for="" to the relevant input so screen readers will link the label with the correct input-->
+            <!-- Adding aria-label="" to the inputs so screen readers will read out to the user what the current input is -->
+            <!-- Adding tabindex to make sure the form is able to be tabbed through correctly -->
+            <label id="holidayTitleLabel" for="holidayTitleInput">Holiday Title</label>
+            <!-- Setting max input to the values within the SQL data structure to prevent any errors from the user inputting too many chars -->
+            <input type="text" name="holidayTitle" id="holidayTitleInput" maxlength="256" aria-label="Holiday Title Input" tabindex="1">
+            <label id="holidayLocationLabel" for="holidayLocationInput">Holiday Location</label>
+            <select name="holidayLocation" id="holidayLocationInput" aria-label="Holiday Location Input" tabindex="2">
+                <option value="">Select a Location</option>
+                <option value="l1">Milaidhoo Island</option>
+                <option value="l2">Rangali Island</option>
+                <option value="l3">Zanzibar</option>
+                <option value="l4">Boston</option>
+                <option value="l5">San Francisco</option>
+                <option value="l6">Nairobi</option>
+                <option value="l7">Algarve</option>
+                <option value="l8">New York</option>
+                <option value="l9">Sorrento</option>
+                <option value="l10">Verona</option>
+            </select>
+            <label id="holidayCategoryLabel" for="holidayCategoryInput">Holiday Category</label>
+            <select name="holidayCategory" id="holidayCategoryInput" aria-label="Holiday Category Input" tabindex="3">
+                <option value="">Select a Category</option>
+                <option value="c1">Luxury</option>
+                <option value="c2">Tour</option>
+                <option value="c3">Safari</option>
+                <option value="c4">Golf</option>
+                <option value="c5">Weddings</option>
+                <option value="c6">Walking</option>
+                <option value="c7">Opera</option>
+            </select>
+            <label id="holidayDescriptionLabel" for="holidayDescriptionInput">Holiday Description</label>
+            <!-- Setting max input to the values within the SQL data structure to prevent any errors from the user inputting too many chars -->
+            <textarea name="holidayDescription" cols="20" row="5" id="holidayDescriptionInput" maxlength="256" aria-label="Holiday Description Input" tabindex="4"></textarea>
+            <label id="holidayDurationLabel" for="holidayDurationInput">Holiday Duration</label>
+            <!-- Have to use oninput with type="number" as it does not support the maxlength. Javascript slicing any value after the maxlength value declared -->
+            <input type="number" name="holidayDuration" id="holidayDurationInput" maxlength="2" oninput="this.value=this.value.slice(0,this.maxLength)" aria-label="Holiday Duration Input" tabindex="5">
+            <label id="holidayPriceLabel" for="holidayPriceInput">Holiday Price</label>
+            <input type="number" name="holidayPrice" id="holidayPriceInput" maxlength="6" oninput="this.value=this.value.slice(0,this.maxLength)" aria-label="Holiday Price Input" tabindex="6">
+            <!-- Submit button -->
+            <input type="submit" value="Add Holiday" id="holidaySubmit" aria-label="Add Holiday" tabindex="7">
+        </form>
+        <!-- Separator div to create a bit of white space at the bottom of the page -->
+        <div class="separatorDivAdmin"></div>
+    </main>
+</div>
+</body>
+</html>

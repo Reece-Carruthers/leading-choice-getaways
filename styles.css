@@ -1,0 +1,1824 @@
+/*
+imports the font from the file server
+ */
+@font-face {
+    font-family: 'quicksandlight';
+    src: url('quicksand-variablefont_wght-webfont.woff2') format('woff2'),
+    url('quicksand-variablefont_wght-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+/*
+    CSS rules which are applied to both mobile and desktop
+ */
+
+/*
+Makes the form and buttons more accesible by highlighting anything that is in focus
+ */
+form:focus, button:focus{
+    outline: 1px solid orange;
+}
+
+
+/*
+Makes the typed text within the text area the correct font
+ */
+textarea{
+    font-family: "quicksandlight", Verdana, sans-serif;
+}
+html{
+    min-height: 100%;
+    margin: 0;
+    padding: 0;
+}
+body {
+    margin: 0;
+    padding: 0;
+    min-height: 100%;
+    width: 100%;
+
+}
+
+#deals_original{
+    text-decoration:line-through;
+}
+
+.active_button{
+    background-color: orange;
+}
+
+/*
+This media query relates to mobile phone screens
+ */
+@media screen and (max-width: 995px){
+
+    /*
+    Gets rid of the desktop navigation bar and desktop header
+     */
+    nav {
+        display: none;
+    }
+    #desktopHeader {
+        display: none;
+    }
+
+    img {
+        max-width: 100%;
+    }
+
+    /*
+    This section is all about styling the hamburger menu and the mobile header
+
+    Purpose of the grid is to get the header and hamburger on the same row
+     */
+
+    .mobileNav{
+        font-family: "quicksandlight", Verdana, sans-serif;
+        display: grid;
+        grid-template-areas:
+            "hamburgerIcon mobileHeader ."
+            "hamburgerIcon . ."
+            "hamburgerLinks hamburgerLinks hamburgerLinks"
+    ;
+        grid-template-rows: 25% 1fr auto;
+        grid-template-columns: 10% 80% 10%;
+        background: #5fa5e8;
+        background: url("img_tropicalbeach_mobile.jpg") no-repeat;
+        background-size: cover;
+        width: 100%;
+    }
+    .mobileNav #hamburgerLinks{
+        display: none;
+        background-color: #3b3a3a;
+        width: 100%;
+    }
+    .mobileNav #hamburgerLinks a{
+        color: #f5f1f1;
+        width: 100%;
+        text-decoration: none;
+        font-size: 24px;
+    }
+    .mobileNav #hamburgerLinks a:hover{
+        background: #c7bbbb;
+        color: black;
+    }
+
+    /*
+    THis relates to the styling of the hamburger icon
+     */
+    .hamburgerIcon{
+        color: black;
+        font-size: 32px;
+        grid-area: hamburgerIcon;
+        margin: auto;
+        justify-self: center;
+    }
+    /*
+    This section relates to the styling of the mobile header
+     */
+    #mobileHeader{
+        grid-area: mobileHeader;
+        margin: auto;
+        color: #f5f1f1;
+        text-align: center;
+        font-size: 40px;
+        text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
+    }
+    #mobileHeader span{
+        color: orange;
+    }
+    /*
+    This positions the navigation links within the collapsable hamburger menu
+     */
+    #hamburgerLinks{
+        grid-area: hamburgerLinks;
+        grid-template-areas:
+    "mobileHome"
+    "mobileHolidays"
+    "mobileAdmin"
+    "mobileCredits"
+    "mobileWireframes"
+    ;
+        grid-template-rows: 20% 20% 20% 20% 20%;
+        text-align: center;
+    }
+
+    /*
+    This section is about the positioning of elements within the deal section
+
+    and styling the best deals widget, about us widget and the buttons which let you view the best deals
+     */
+
+    .deal {
+        display: grid;
+        grid-template-areas:
+        "aboutwidget"
+        "bestdealsheader"
+        "bestdeals"
+        "dealbuttons"
+        "seperatorDiv"
+        ;
+        grid-row-gap: 20px;
+        grid-template-rows: auto auto auto 5% 50px;
+    }
+
+    .about_widget, .deal_widget{
+        border: 0;
+        border-radius: 15px;
+        box-shadow: 0 2px 6px hsla(0,0%,0%, 0.2);
+        font-family: "quicksandlight", Verdana, sans-serif;
+        margin: auto;
+    }
+
+    .about_widget{
+        margin-top: 5%;
+        width: 80%;
+        grid-area: aboutwidget;
+        text-align: center;
+        justify-items: center;
+    }
+    .about_widget h3{
+        font-size: 20px;
+    }
+    .about_widget p{
+        font-weight: bolder;
+        font-size: 18px;
+        color: #0f2290;
+    }
+
+    .deal_widget{
+        width: 90%;
+        grid-area: bestdeals;
+        text-align: center;
+    }
+    .deal_widget img{
+        object-fit: fill;
+    }
+    .deal_widget button{
+        font-size: 24px;
+        border-radius: 15px;
+        margin-bottom: 10px;
+        font-family: quicksandlight, Verdana, sans-serif;
+    }
+    .deal_widget button:hover{
+        box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
+    }
+
+    .deals_buttons{
+        display: inline-grid;
+        grid-template-areas: "dealsbutton1 dealsbutton2 dealsbutton3";
+        grid-template-columns: 1fr 1fr 1fr;
+        width: 90%;
+        height: 100%;
+        column-gap: 10px;
+        grid-area: dealbuttons;
+        justify-self: center;
+        font-size: 16px;
+        margin: auto;
+    }
+    #dealsb1{
+        grid-area: dealsbutton1;
+    }
+    #dealsb2{
+        grid-area: dealsbutton2;
+    }
+    #dealsb3{
+        grid-area: dealsbutton3;
+    }
+
+    .deal h2{
+        grid-area: bestdealsheader;
+        font-family: quicksandlight, Verdana, sans-serif;
+        margin: auto;
+    }
+    /*
+    the purpose of this class is to stop the popularDestinations header overlapping
+    the buttons
+     */
+    .separaterDiv{
+        grid-area: separatorDiv;
+    }
+    /*
+    This section relates to the cards that show the top 3 popular destinations
+    and the top 3 tours.
+
+    The cards are positioned inside of a grid.
+     */
+    .popular_holidays{
+        display: grid;
+        grid-template-areas:
+        "popularDestHeader"
+        "popularDestinations"
+        "popularTourHeader"
+        "popularTours"
+        ;
+
+        font-family: quicksandlight, Verdana, sans-serif;
+        text-align: center;
+    }
+
+    .popular_holidays h2{
+        text-align: center;
+    }
+    .poph2{
+        grid-area: popularDestHeader;
+    }
+
+    .tourh2{
+        grid-area: popularTourHeader;
+    }
+
+    /*
+    This section is about styling the cards which display the popular destinations and tours
+    They do not have to be added to a grid since they are vertically placed within the html
+     */
+    .dest_1, .dest_2, .dest_3, .tour_1, .tour_2, .tour_3{
+        font-family: quicksandlight, Verdana, sans-serif;
+        border: 0;
+        border-radius: 15px;
+        box-shadow: 0 2px 6px hsla(0,0%,0%, 0.2);
+        margin: auto;
+        width: 90%;
+    }
+
+    .popular_holidays button{
+        font-family: quicksandlight, Verdana, sans-serif;
+        font-size: 24px;
+        border-radius: 15px;
+        margin-bottom: 10px;
+    }
+    .popular_holidays button:hover{
+        box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
+    }
+
+    /*
+    This section relates to the styling of the footer and the footers elements
+     */
+    .mainFooter {
+        display: grid;
+        grid-template-areas:
+        "."
+        "moreinfo"
+        "contact"
+        "."
+        ;
+        grid-row-gap: 15px;
+        grid-template-rows: 5% auto auto 50px;
+        justify-content: center;
+        font-family: quicksandlight, Verdana, sans-serif;
+    }
+
+    /*
+ Defines the grid area for moreinfo and contactus and styles them to look like the other widgets
+ */
+    .moreinfo , .contactus{
+        width: 80%;
+        max-height: 100%;
+        justify-self: center;
+        display: grid;
+        grid-template-rows: 0.1fr 1fr 1fr 1fr;
+        border: 0;
+        border-radius: 15px;
+        box-shadow: 0 2px 6px hsla(0,0%,0%, 0.2);
+    }
+
+    .moreinfo h4, .contactus h4{
+        text-align: center;
+    }
+    .moreinfo p, .contactus p{
+        justify-content: space-evenly;
+        padding: 10px;
+    }
+    .contactus p{
+        margin: 0;
+    }
+    /*
+      This places the footer cards into their correct positions
+      and defines grid areas for the moreinfo children grid and contactus children grid
+     */
+    .moreinfo{
+        grid-area: moreinfo;
+        grid-template-areas:
+    "h41"
+    "p11"
+    "p11"
+    "p11"
+    ;
+    }
+    .contactus{
+        grid-area: contact;
+        grid-template-areas:
+    "h42"
+    "p21"
+    'p22'
+    "p23"
+    ;
+    }
+
+    /*
+    This places the footer card children elements into the correct places
+     */
+
+
+    /*
+    This is for the moreinfo cards children
+     */
+    #h41{
+        grid-area: h41;
+    }
+    #p11{
+        grid-area: p11;
+    }
+    /*
+        This is for the contactus cards children
+     */
+    #h42{
+        grid-area: h42;
+    }
+    #p21{
+        grid-area: p21;
+    }
+    #p22{
+        grid-area: p22;
+    }
+    #p23{
+        grid-area: p23;
+    }
+
+    /*
+    This section is the styling for the view holidays page on mobile
+     */
+
+    .allHolidaysHeader {
+        text-align: center;
+        font-size: 28px;
+        font-family: "quicksandlight", Verdana, sans-serif;
+    }
+
+    /*
+    allHolidays relates to the container that the holidays imported from php will be contained in
+     */
+    .allHolidays {
+        display: grid;
+        grid-template-columns: 90%;
+        justify-content: center;
+        grid-row-gap: 20px;
+        grid-column-gap: 20px;
+        padding-top: 20px;
+        font-family: "quicksandlight", Verdana, sans-serif;
+        grid-template-rows: minmax(10%,30%) 10% auto 15%;
+    }
+
+    /*
+    Creates 2 columns for screens bigger than most phones e.g tablets
+     */
+    @media only screen and (min-width: 600px){
+        .allHolidays {
+            display: grid;
+            grid-template-columns: 45% 45%;
+            justify-content: center;
+            grid-row-gap: 20px;
+            grid-column-gap: 20px;
+            padding-top: 20px;
+            font-family: "quicksandlight", Verdana, sans-serif;
+            grid-template-rows: 1fr minmax(10%,15%) auto minmax(10%,15%);
+        }
+    }
+    @media only screen and (min-width: 601px) and (max-width: 995px){
+        .holidayDiv .locationName, .holidayDiv .catDesc{
+            margin-top: 0;
+            margin-bottom: 0;
+            position: relative;
+            bottom: 40px;
+        }
+    }
+    /*
+holidayDiv relates to each individual holidays container
+ */
+    .holidayDiv{
+        display: grid;
+        grid-template-areas:
+    "holidayTitle holidayTitle"
+    "locationName catDesc"
+    "holidayDescription holidayDescription"
+    "holidayDuration holidayPrice"
+    ;
+        text-align: center;
+        border: 0;
+        border-radius: 15px;
+        box-shadow: 0 2px 6px hsla(0,0%,0%, 0.2);
+        grid-template-rows: minmax(10%,30%) 10% auto 15%;
+        height: 100%;
+        font-size: 13px;
+    }
+
+    .holidayDiv .holidayTitle{
+        grid-area: holidayTitle;
+        font-size: 15px;
+        margin-bottom: 20px;
+    }
+    .holidayDiv .locationName{
+        grid-area: locationName;
+        margin-top: 20px;
+        margin-bottom: 20px;
+        color: #0f2290;
+    }
+    .holidayDiv .catDesc{
+        grid-area: catDesc;
+        margin-top: 20px;
+        margin-bottom: 20px;
+        color: #0f2290;
+    }
+
+    .holidayDiv .holidayDescription{
+        grid-area: holidayDescription;
+        margin: auto;
+        padding-left: 5px;
+        padding-right: 5px;
+
+    }
+    .holidayDiv .holidayDuration{
+        grid-area: holidayDuration;
+        border-radius: 0 0 0 15px;
+        padding-left: 10px;
+        padding-top: 10px;
+    }
+    .holidayDiv .holidayPrice {
+        grid-area: holidayPrice;
+        border-radius: 0 0 15px 0;
+        padding-right: 10px;
+        padding-top: 10px;
+    }
+    .holidayDiv .holidayDuration, .holidayDiv .holidayPrice{
+        background: #d7d7d7;
+    }
+
+    /*
+    I use this to create a bit of white space at the bottom of the page
+     */
+    .separatorDiv{
+        height: 25px;
+    }
+
+    /*
+    Styling the header of the admin page
+     */
+    .adminHeader{
+        font-family: "quicksandlight", Verdana, sans-serif;
+        text-align: center;
+        padding-bottom: 20px;
+    }
+    /*
+This styling relates to the form and where elements will be placed
+ */
+    .addHolidayForm {
+        display: grid;
+        grid-template-areas:
+        "holidayLegend holidayLegend"
+        "holidayTitleLabel holidayTitleInput"
+        "holidayLocationLabel holidayLocationInput"
+        "holidayCategoryLabel holidayCategoryInput"
+        "holidayDescriptionLabel holidayDescriptionInput"
+        "holidayDurationLabel holidayDurationInput"
+        "holidayPriceLabel holidayPriceInput"
+        "holidaySubmit holidaySubmit"
+        ". ."
+    ;
+        grid-template-columns: 50% 50%;
+        grid-template-rows: auto auto auto auto auto auto auto 40px;
+        width: 80%;
+        font-family: "quicksandlight", Verdana, sans-serif;
+        margin: auto;
+        box-shadow: 0 2px 6px hsla(0, 0%, 0%, 0.2);
+        border: 0;
+        border-radius: 15px;
+        grid-row-gap: 15px;
+
+    }
+    /*
+    Assinging the form objects to their respective grid areas
+    and styling specific input/labels
+     */
+    .addHolidayForm label{
+        margin-left: 10px;
+    }
+    .addHolidayForm input, .addHolidayForm textarea, .addHolidayForm select{
+        margin-right: 10px;
+    }
+    #holidayLegend{
+        grid-area: holidayLegend;
+        text-align: center;
+        font-weight: bold;
+        font-size: 18px;
+        margin-bottom: 15px;
+        padding-top: 10px;
+    }
+    #holidayTitleLabel{
+        grid-area: holidayTitleLabel;
+    }
+    #holidayTitleInput{
+        grid-area: holidayTitleInput;
+    }
+    #holidayLocationLabel{
+        grid-area: holidayLocationLabel;
+    }
+    #holidayLocationInput{
+        grid-area: holidayLocationInput;
+    }
+    #holidayCategoryLabel{
+        grid-area: holidayCategoryLabel;
+    }
+    #holidayCategoryInput{
+        grid-area: holidayCategoryInput;
+    }
+    #holidayDescriptionLabel{
+        grid-area: holidayDescriptionLabel;
+    }
+    #holidayDescriptionInput{
+        grid-area: holidayDescriptionInput;
+    }
+    #holidayDurationLabel{
+        grid-area: holidayDurationLabel;
+    }
+    #holidayDurationInput{
+        grid-area: holidayDurationInput;
+        text-align: center;
+    }
+    #holidayPriceLabel{
+        grid-area: holidayPriceLabel;
+    }
+    #holidayPriceInput{
+        grid-area: holidayPriceInput;
+        text-align: center;
+    }
+    #holidaySubmit{
+        grid-area: holidaySubmit;
+        width: 50%;
+        height: 75%;
+        margin: auto;
+        border-radius: 15px;
+
+    }
+
+    select{
+        font-family: "quicksandlight", Verdana, sans-serif;
+    }
+    input{
+        font-family: "quicksandlight", Verdana, sans-serif;
+    }
+    #holidaySubmit:hover{
+        box-shadow: 0 12px 16px 0 rgba(0, 0, 0, 0.24), 0 17px 50px 0 rgba(0, 0, 0, 0.19);
+    }
+    /*
+    Creates white space at the bottom of the website
+     */
+    .separatorDivAdmin{
+        height: 25vh;
+    }
+
+    /*
+This section relates to the preview that is generated by adding a holiday
+ */
+
+    .holidayPreviewHeader {
+        text-align: center;
+        font-family: "quicksandlight", Verdana, sans-serif;
+    }
+    .holidayDivPreview {
+        display: grid;
+        grid-template-areas:
+    "holidayTitle holidayTitle"
+    "locationName catDesc"
+    "holidayDescription holidayDescription"
+    "holidayDuration holidayPrice";
+        text-align: center;
+        border: 0;
+        border-radius: 15px;
+        box-shadow: 0 2px 6px hsla(0, 0%, 0%, 0.2);
+        grid-template-rows: 20% 15% auto 15%;
+        height: 100%;
+        width: 80%;
+        margin: auto;
+        font-family: "quicksandlight", Verdana, sans-serif;
+    }
+
+
+    .holidayDivPreview .holidayTitlePreview {
+        grid-area: holidayTitle;
+
+    }
+
+    .holidayDivPreview .locationNamePreview {
+        grid-area: locationName;
+        margin-top:25px;
+        margin-bottom: 50px;
+        color: #0f2290;
+    }
+
+    .holidayDivPreview .catDescPreview {
+        grid-area: catDesc;
+        margin-top: 25px;
+        margin-bottom: 50px;
+        color: #0f2290;
+    }
+
+    .holidayDivPreview .holidayDescriptionPreview {
+        grid-area: holidayDescription;
+        font-size: 14px;
+        margin: auto;
+        padding-left: 5px;
+        padding-right: 5px;
+
+    }
+
+    .holidayDivPreview .holidayDurationPreview {
+        grid-area: holidayDuration;
+        border-radius: 0 0 0 15px;
+        padding-left: 10px;
+        padding-top: 10px;
+    }
+
+    .holidayDivPreview .holidayPricePreview {
+        grid-area: holidayPrice;
+        border-radius: 0 0 15px 0;
+        padding-right: 10px;
+        padding-top: 10px;
+    }
+
+    .holidayDivPreview .holidayDurationPreview, .holidayDivPreview .holidayPricePreview {
+        background: #d7d7d7;
+    }
+
+    .separatorDivPreview{
+        height: 50vh;
+    }
+
+    /*
+Stylings for the credits page
+ */
+
+    /*
+    Styling the header and the two text containers
+     */
+    .creditsHeader{
+        text-align: center;
+        font-family: "quicksandlight", Verdana, sans-serif;
+    }
+    .references, .webSecurity, .creditsFooter{
+        margin: auto;
+        width: 90%;
+        border: 0;
+        border-radius: 15px;
+        box-shadow: 0 2px 6px hsla(0, 0%, 0%, 0.2);
+        font-family: "quicksandlight", Verdana, sans-serif;
+    }
+    .references h3, .webSecurity h3, .creditsFooter h4{
+        text-align: center;
+        padding: 10px;
+    }
+    .references p, .webSecurity p, .creditsFooter p{
+        padding: 10px;
+    }
+
+    .creditsFooter{
+        width: 80%;
+    }
+    /*
+    Creates whitespace at the bottom of the document
+     */
+    .separatorDivCredits{
+        height: 50vh
+    }
+
+}
+/*
+    ------ END OF MOBILE PHONE MEDIA QUERY --------
+ */
+
+/*
+This media query relates to desktop screens.
+ */
+@media screen and (min-width: 992px) {
+    /*
+    Gets rid of the mobile navigation menu and shows the desktop one
+    Also gets rid of the seperator div which is used to stop some text overlapping
+     */
+    .mobileNav {
+        display: none;
+    }
+
+    .separatorDiv {
+        display: none;
+    }
+
+
+    /*
+Purpose of the css of body is to apply a background image which spans the entire page
+*/
+    body {
+        background-image: url("img_tropicalbeach_desktop.jpg");
+        background-repeat: no-repeat;
+        background-attachment: fixed;
+        background-size: cover;
+    }
+
+    /*
+    Purpose of whiterectangle is to create a white rectangle which is centered in the middle of the page and spans it vertically while taking up 75% of the width
+     the position sticky allows it to follow the user when they scroll.
+    */
+    .whiterectangle {
+        padding: 0;
+        background: white;
+        margin: auto;
+        width: 75%;
+        min-height: 100%;
+    }
+
+    /*
+    Purpose of main here is the make sure it spans the whole of the white rectangle box and takes up all the space it can
+     */
+    main {
+        padding: 0;
+        margin: auto;
+        width: 100%;
+        min-height: 100%;
+    }
+
+    /*
+    this centers the header in the top middle of the page
+     */
+    header {
+        margin: auto;
+        text-align: center;
+    }
+
+    /*
+    styling the main page header with a big font size a white colour and a black text outline so it stands out on the background image
+     */
+    h1 {
+        font-size: 3em;
+        color: white;
+        text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
+    }
+
+    /*
+    this allows me to use a span tag to make the first letter of each word in the title orange
+     */
+    h1 span {
+        color: orange;
+    }
+
+    /*
+    setting all fonts to my custom font I downloaded from Google Fonts
+     */
+    h1, h2, h3, h4, p {
+        font-family: "quicksandlight", Verdana, sans-serif;
+    }
+
+
+    /*
+    this styles the navigation to be inline across the page I used a grid so it responsively resizes
+     */
+    nav {
+        display: inline-grid;
+        grid-template-columns: repeat(5, 20%);
+        grid-template-areas:
+    "home viewholiday admin credits wireframes";
+        width: 100%;
+        background: #3b3a3a;
+        overflow: auto;
+    }
+
+    /*
+    styling the elements inside of the nav so they have certain text  color
+     */
+    nav a {
+        font-size: 16px;
+        text-align: center;
+        font-family: "quicksandlight", Verdana, sans-serif;
+        text-decoration: none;
+        color: #f5f1f1;
+    }
+
+    /*
+    this makes the background change color upon hovering it changes it to a light grey and then the text from white to black so it is easier read
+     */
+    nav a:hover {
+        background: #c7bbbb;
+        color: black;
+    }
+
+
+    /*
+    these are simple IDs i gave to the navigation elements so i could position them within the grid I created
+     */
+    #home {
+        grid-area: home;
+    }
+
+    #view_holidays {
+        grid-area: viewholiday;
+    }
+
+    #admin {
+        grid-area: admin;
+    }
+
+    #credits {
+        grid-area: credits;
+    }
+
+    #wireframes {
+        grid-area: wireframes;
+    }
+
+
+    /*
+    this whole section is about styling the two widgets that appear below the nav. One displays the best deals and the other is a little about us
+     */
+    /*
+    I make use of a grid display so I can responsively resize the page and place the elements exactly where I want them
+     */
+    .deal {
+        display: grid;
+        grid-template-columns: 50% 50%;
+        grid-template-rows: auto minmax(0, 1fr) minmax(0, 0.05fr);
+        grid-template-areas:
+    "h2 h2"
+    "deals aboutus"
+    "buttons .";
+        align-content: center;
+    }
+
+    /* this is general styling for the both of the widgets. I set them to 70% of the page so they do not take up too much room and use a margin to center them
+    in their columns
+
+    I make use of a subtle box shadow so they stand out on the page
+     */
+    .deal_widget, .about_widget {
+        max-width: 70%;
+        margin-top: 0;
+        margin-right: auto;
+        margin-left: auto;
+        margin-bottom: auto;
+        border: 0;
+        border-radius: 15px;
+        box-shadow: 0 2px 6px hsla(0, 0%, 0%, 0.2);
+        font-family: "quicksandlight", Verdana, sans-serif;
+    }
+
+    /* I apply a grid for the inside of the widget so I can make sure everything gets resized responsively and goes into the correct place
+
+     */
+    .deal_widget {
+        grid-area: deals;
+        width: 100%;
+        display: grid;
+        grid-template-rows: minmax(0, 10%) 1fr minmax(0, 100%) minmax(0, 0.1fr);
+        grid-template-columns: 65% 35%;
+        grid-template-areas:
+    "h3 h3"
+    "image image"
+    "description price";
+
+    }
+
+    /*
+    This media query is to stop the text from overflowing the button
+     */
+    @media only screen and (max-width: 1600px) {
+
+        .deal_widget {
+            display: grid;
+            grid-template-rows: minmax(0, 10%) 1fr auto;
+            grid-template-columns: 50% 50%;
+        }
+    }
+    /* positions the best deal header so its inline with the deal widget
+
+     */
+    .deal h2 {
+        grid-area: h2;
+        margin-left: 7.5%;
+    }
+
+
+    /* this is for the header of the deal widget its aligned in the center and I give it a border and some padding so it sits nicely in the box
+
+     */
+    .deal_widget h3 {
+        grid-area: h3;
+        text-align: center;
+        padding-bottom: 10px;
+        padding-top: 10px;
+        margin: 0;
+    }
+
+    /* customizes the image so it fills the container and does not overflow I then add a border at the bottom so it gets sectioned off
+
+     */
+    .deal_widget img {
+        grid-area: image;
+        max-width: 100%;
+        max-height: 100%;
+        object-fit: fill;
+        margin: 0;
+    }
+
+    .deal_widget p {
+        font-size: 18px;
+    }
+
+    @media only screen and (min-width: 2400px) {
+
+        .deal_widget img {
+            height: 100%;
+            width: 100%;
+            object-fit: cover;
+        }
+
+    }
+
+    .description {
+        grid-area: description;
+        font-size: 15px;
+        padding: 0;
+        margin: 0;
+    }
+
+    .price {
+        grid-area: price;
+        font-family: "quicksandlight", Verdana, sans-serif;
+        font-weight: bold;
+        text-align: center;
+        justify-self: center;
+        font-size: 18px;
+        background-color: #d2d2d2;
+        color: black;
+        text-decoration: none;
+        width: 75%;
+        height: 50%;
+        margin-top: 20px;
+        border-radius: 12px;
+        border: none;
+    }
+
+    .price_button:hover {
+        box-shadow: 0 12px 16px 0 rgba(0, 0, 0, 0.24), 0 17px 50px 0 rgba(0, 0, 0, 0.19);
+    }
+
+    .about_widget {
+        grid-area: aboutus;
+        width: 70%;
+        margin: auto;
+        align-content: center;
+        text-align: center;
+        font-size: 20px;
+    }
+
+    .deal_widget p {
+        padding: 10px
+    }
+
+    .about_widget p {
+        align-content: space-evenly;
+    }
+
+    .red_text {
+        color: #0f2290;
+    }
+
+    .deals_buttons {
+        grid-area: buttons;
+        height: 100%;
+        margin-top: 10px;
+        justify-self: center;
+    }
+
+    .deals_buttons button {
+        font-size: 15px;
+        height: 100%;
+        max-width: 100%;
+        border-radius: 100%;
+    }
+
+
+    .popular_holidays {
+        display: grid;
+        grid-template-columns: minmax(0, 1fr);
+        grid-template-areas:
+    "poph2"
+    "dest"
+    "tourh2"
+    "tour";
+    }
+
+    .poph2 {
+        grid-area: poph2;
+    }
+
+    .tourh2 {
+        grid-area: tourh2;
+    }
+
+    .popularDestinations {
+        grid-area: dest;
+        display: grid;
+        grid-template-areas:
+    "dest1 dest2 dest3";
+    }
+
+    .dest_1 {
+        grid-area: dest1;
+        display: grid;
+        grid-template-areas:
+    "destcountry1 destcountry1"
+    "destimage1 destimage1"
+    "destdesc1 descprice1";
+    }
+
+    .dest_1 h3 {
+        grid-area: destcountry1;
+    }
+
+    .dest_1 img {
+        grid-area: destimage1;
+    }
+
+    .dest_1 p {
+        grid-area: destdesc1;
+    }
+
+    .dest_1 button {
+        grid-area: descprice1;
+    }
+
+    .dest_2 {
+        grid-area: dest2;
+        display: grid;
+        grid-template-areas:
+    "destcountry2 destcountry2"
+    "destimage2 destimage2"
+    "destdesc2 descprice2";
+    }
+
+    .dest_2 h3 {
+        grid-area: destcountry2;
+    }
+
+    .dest_2 img {
+        grid-area: destimage2;
+    }
+
+    .dest_2 p {
+        grid-area: destdesc2;
+    }
+
+    .dest_2 button {
+        grid-area: descprice2;
+    }
+
+    .dest_3 {
+        grid-area: dest3;
+        display: grid;
+        grid-template-areas:
+    "destcountry3 destcountry3"
+    "destimage3 destimage3"
+    "destdesc3 descprice3";
+    }
+
+    .dest_3 h3 {
+        grid-area: destcountry3;
+    }
+
+    .dest_3 img {
+        grid-area: destimage3;
+    }
+
+    .dest_3 p {
+        grid-area: destdesc3;
+    }
+
+    .dest_3 button {
+        grid-area: descprice3;
+    }
+
+    .popularTours {
+        grid-area: tour;
+        display: grid;
+        grid-template-areas:
+    "tour1 tour2 tour3";
+    }
+
+    .tour_1 {
+        grid-area: tour1;
+        display: grid;
+        grid-template-areas:
+    "tourcountry1 tourcountry1"
+    "tourimage1 tourimage1"
+    "tourdesc1 tourprice1"
+    }
+
+    .tour_1 h3 {
+        grid-area: tourcountry1;
+    }
+
+    .tour_1 img {
+        grid-area: tourimage1;
+    }
+
+    .tour_1 p {
+        grid-area: tourdesc1;
+    }
+
+    .tour_1 button {
+        grid-area: tourprice1;
+    }
+
+    .tour_2 {
+        grid-area: tour2;
+        display: grid;
+        grid-template-areas:
+    "tourcountry2 tourcountry2"
+    "tourimage2 tourimage2"
+    "tourdesc2 tourprice2"
+    }
+
+    .tour_2 h3 {
+        grid-area: tourcountry2;
+    }
+
+    .tour_2 img {
+        grid-area: tourimage2;
+    }
+
+    .tour_2 p {
+        grid-area: tourdesc2;
+    }
+
+    .tour_2 button {
+        grid-area: tourprice2;
+    }
+
+    .tour_3 {
+        grid-area: tour3;
+        display: grid;
+        grid-template-areas:
+    "tourcountry3 tourcountry3"
+    "tourimage3 tourimage3"
+    "tourdesc3 tourprice3"
+    }
+
+    .tour_3 h3 {
+        grid-area: tourcountry3;
+    }
+
+    .tour_3 img {
+        grid-area: tourimage3;
+    }
+
+    .tour_3 p {
+        grid-area: tourdesc3;
+    }
+
+    .tour_3 img {
+        grid-area: tourimage3;
+    }
+
+    .tour_3 button {
+        grid-area: tourprice3;
+    }
+
+
+    .dest_1, .dest_2, .dest_3, .tour_1, .tour_2, .tour_3 {
+        grid-template-rows: 10% 0.5fr 0.3fr;
+        grid-template-columns: 65% minmax(0, 50%);
+    }
+
+    .popular_holidays div div {
+        border: 0;
+        border-radius: 15px;
+        box-shadow: 0 2px 6px hsla(0, 0%, 0%, 0.2);
+    }
+
+    .popular_holidays div div img {
+        max-width: 100%;
+        max-height: 100%;
+        object-fit: fill;
+        margin: 0;
+    }
+
+    .popular_holidays div div h3 {
+        margin: auto;
+        text-align: center;
+    }
+
+    .popular_holidays div div p {
+        font-size: 18px;
+        padding-left: 10px;
+        padding-bottom: 10px;
+    }
+
+    @media only screen and (min-width: 2400px) {
+
+        .popular_holidays div div h3 {
+            font-size: 24px;
+        }
+
+        .popular_holidays div div p {
+            font-size: 20px;
+        }
+
+        .popular_holidays div div button {
+            font-size: 20px;
+        }
+
+        .price {
+            font-size: 20px;
+        }
+
+        .deal_widget h3 {
+            font-size: 24px;
+        }
+    }
+    @media only screen and (min-width: 3000px) {
+
+        .popular_holidays div div h3 {
+            font-size: 28px;
+        }
+
+        .popular_holidays div div p {
+            font-size: 24px;
+        }
+
+        .popular_holidays div div button {
+            font-size: 24px;
+        }
+
+        .price {
+            font-size: 24px;
+        }
+
+        .deal_widget h3 {
+            font-size: 28px;
+        }
+    }
+
+
+    .popular_holidays div div button {
+        margin: auto;
+        font-weight: bold;
+        text-align: center;
+        justify-self: center;
+        font-size: 18px;
+        background-color: #d2d2d2;
+        color: black;
+        text-decoration: none;
+        width: 75%;
+        height: 50%;
+        border-radius: 12px;
+        font-family: "quicksandlight", Verdana, sans-serif;
+        outline: none;
+        border: none;
+    }
+
+    .popular_holidays div div button:hover {
+        box-shadow: 0 12px 16px 0 rgba(0, 0, 0, 0.24), 0 17px 50px 0 rgba(0, 0, 0, 0.19);
+    }
+
+    .popularTours, .popularDestinations {
+        display: grid;
+        grid-template-columns: 0.5fr 0.5fr 0.5fr;
+        grid-column-gap: 15px;
+        margin-left: 2%;
+        margin-right: 2%;
+    }
+
+    .popular_holidays h2 {
+        margin-left: 2.5%;
+    }
+
+
+    .mainFooter {
+        display: grid;
+        grid-template-columns: 50% 50%;
+        grid-template-rows: 5% 90% 5%;
+        grid-template-areas:
+    ". ."
+    "moreinfo contact"
+    ". .";
+    }
+
+    /*
+     Defines the grid area for moreinfo and contactus and styles them to look like the other widgets
+     */
+    .moreinfo, .contactus {
+        width: 80%;
+        max-height: 80%;
+        margin: auto;
+        display: grid;
+        grid-template-rows: 0.1fr 1fr 1fr 1fr;
+        border: 0;
+        border-radius: 15px;
+        box-shadow: 0 2px 6px hsla(0, 0%, 0%, 0.2);
+    }
+
+    .moreinfo h4, .contactus h4 {
+        text-align: center;
+    }
+
+    .moreinfo p, .contactus p {
+        justify-content: space-evenly;
+        padding: 10px;
+    }
+
+    .contactus p {
+        margin: 0;
+    }
+
+    /* This media query is to stop the paragraph text overflowing the container
+
+     */
+    @media only screen and (max-width: 1200px) {
+        .moreinfo p, .contactus p {
+            font-size: 14px;
+        }
+    }
+    /*
+      This places the footer cards into their correct positions
+      and defines grid areas for the moreinfo children grid and contactus children grid
+     */
+    .moreinfo {
+        grid-area: moreinfo;
+        grid-template-areas:
+    "h41"
+    "p11"
+    "p11"
+    "p11";
+    }
+
+    .contactus {
+        grid-area: contact;
+        grid-template-areas:
+    "h42"
+    "p21"
+    'p22'
+    "p23";
+    }
+
+    /*
+    This places the footer card children elements into the correct places
+     */
+    /*
+    This is for the moreinfo cards children
+     */
+    #h41 {
+        grid-area: h41;
+    }
+
+    #p11 {
+        grid-area: p11;
+    }
+
+    /*
+        This is for the contactus cards children
+     */
+    #h42 {
+        grid-area: h42;
+    }
+
+    #p21 {
+        grid-area: p21;
+    }
+
+    #p22 {
+        grid-area: p22;
+    }
+
+    #p23 {
+        grid-area: p23;
+    }
+
+
+    /*
+    This area relates to the styling of the view holiday page
+     */
+    .allHolidaysHeader {
+        text-align: center;
+        font-size: 28px;
+    }
+
+    /*
+    allHolidays relates to the container that the holidays imported from php will be contained in
+     */
+    .allHolidays {
+        display: grid;
+        grid-template-columns: 30% 30% 30%;
+        justify-content: center;
+        grid-row-gap: 20px;
+        grid-column-gap: 20px;
+        padding-top: 20px;
+        font-family: "quicksandlight", Verdana, sans-serif;
+
+    }
+
+    /*
+    holidayDiv relates to each individual holidays container
+     */
+    .holidayDiv {
+        display: grid;
+        grid-template-areas:
+    "holidayTitle holidayTitle"
+    "locationName catDesc"
+    "holidayDescription holidayDescription"
+    "holidayDuration holidayPrice";
+        text-align: center;
+        border: 0;
+        border-radius: 15px;
+        box-shadow: 0 2px 6px hsla(0, 0%, 0%, 0.2);
+        grid-template-rows: 30% 10% auto 15%;
+        grid-template-columns: 1fr 0.5fr;
+        height: 100%;
+    }
+
+    /*
+    Prevents the  text from bursting out of the container
+     */
+    @media only screen and (max-width: 1328px) {
+        .holidayDiv .holidayPrice, .holidayDiv .holidayDuration {
+            font-size: 15px;
+        }
+
+        .holidayDiv .holidayTitle {
+            font-size: 18px;
+        }
+    }
+    @media only screen and (max-width: 1252px) {
+        .holidayDiv .holidayPrice, .holidayDiv .holidayDuration {
+            font-size: 13px;
+        }
+
+        .holidayDiv .holidayTitle {
+            font-size: 18px;
+        }
+    }
+    @media only screen and (max-width: 1294px) {
+        .holidayDiv {
+            display: grid;
+            grid-template-areas:
+    "holidayTitle holidayTitle"
+    "locationName catDesc"
+    "holidayDescription holidayDescription"
+    "holidayDuration holidayPrice";
+            text-align: center;
+            border: 0;
+            border-radius: 15px;
+            box-shadow: 0 2px 6px hsla(0, 0%, 0%, 0.2);
+            grid-template-rows: 20% minmax(10%, 15%) auto 15%;
+            height: 100%;
+        }
+    }
+
+    .holidayDiv .holidayTitle {
+        grid-area: holidayTitle;
+
+    }
+
+    .holidayDiv .locationName {
+        grid-area: locationName;
+        margin-bottom: 50px;
+        color: #0f2290;
+    }
+
+    .holidayDiv .catDesc {
+        grid-area: catDesc;
+        padding-bottom: 20px;
+        color: #0f2290;
+    }
+
+    .holidayDiv .holidayDescription {
+        grid-area: holidayDescription;
+        font-size: 14px;
+        margin: auto;
+        padding-left: 5px;
+        padding-right: 5px;
+
+    }
+
+    .holidayDiv .holidayDuration {
+        grid-area: holidayDuration;
+        border-radius: 0 0 0 15px;
+        padding-left: 10px;
+        padding-top: 10px;
+    }
+
+    .holidayDiv .holidayPrice {
+        grid-area: holidayPrice;
+        border-radius: 0 0 15px 0;
+        padding-right: 10px;
+        padding-top: 10px;
+    }
+
+    .holidayDiv .holidayDuration, .holidayDiv .holidayPrice {
+        background: #d7d7d7;
+    }
+
+    /*
+    I use this to create a bit of whitespace at the bottom of the page
+     */
+    .separatorDivViewHoliday {
+        height: 25px;
+    }
+
+
+    /*
+    This section relates to the admin page for the form submition
+     */
+    .adminHeader {
+        text-align: center;
+        padding-bottom: 20px;
+    }
+
+    /*
+    This styling relates to the form and where elements will be placed
+     */
+    .addHolidayForm {
+        display: grid;
+        grid-template-areas:
+        "holidayLegend holidayLegend"
+        "holidayTitleLabel holidayTitleInput"
+        "holidayLocationLabel holidayLocationInput"
+        "holidayCategoryLabel holidayCategoryInput"
+        "holidayDescriptionLabel holidayDescriptionInput"
+        "holidayDurationLabel holidayDurationInput"
+        "holidayPriceLabel holidayPriceInput"
+        "holidaySubmit holidaySubmit"
+        ". .";
+        grid-template-columns: 50% 50%;
+        grid-template-rows: auto auto auto auto auto auto auto 40px;
+        width: 40%;
+        font-family: "quicksandlight", Verdana, sans-serif;
+        margin: auto;
+        box-shadow: 0 2px 6px hsla(0, 0%, 0%, 0.2);
+        border: 0;
+        border-radius: 15px;
+        grid-row-gap: 15px;
+
+    }
+
+    /*
+    Assinging the form objects to their respective grid areas
+    and styling specific input/labels
+     */
+    .addHolidayForm label {
+        margin-left: 10px;
+    }
+
+    .addHolidayForm input, .addHolidayForm textarea, .addHolidayForm select {
+        margin-right: 10px;
+    }
+
+    #holidayLegend {
+        grid-area: holidayLegend;
+        text-align: center;
+        font-weight: bold;
+        font-size: 18px;
+        margin-bottom: 15px;
+        padding-top: 10px;
+    }
+
+    #holidayTitleLabel {
+        grid-area: holidayTitleLabel;
+    }
+
+    #holidayTitleInput {
+        grid-area: holidayTitleInput;
+    }
+
+    #holidayLocationLabel {
+        grid-area: holidayLocationLabel;
+    }
+
+    #holidayLocationInput {
+        grid-area: holidayLocationInput;
+        text-align: center;
+    }
+
+    #holidayCategoryLabel {
+        grid-area: holidayCategoryLabel;
+    }
+
+    #holidayCategoryInput {
+        grid-area: holidayCategoryInput;
+    }
+
+    #holidayDescriptionLabel {
+        grid-area: holidayDescriptionLabel;
+    }
+
+    #holidayDescriptionInput {
+        grid-area: holidayDescriptionInput;
+    }
+
+    #holidayDurationLabel {
+        grid-area: holidayDurationLabel;
+    }
+
+    #holidayDurationInput {
+        grid-area: holidayDurationInput;
+        text-align: center;
+    }
+
+    #holidayPriceLabel {
+        grid-area: holidayPriceLabel;
+    }
+
+    #holidayPriceInput {
+        grid-area: holidayPriceInput;
+        text-align: center;
+    }
+
+    #holidaySubmit {
+        grid-area: holidaySubmit;
+        width: 50%;
+        height: 75%;
+        margin: auto;
+        border-radius: 15px;
+
+    }
+
+    select {
+        font-family: "quicksandlight", Verdana, sans-serif;
+    }
+
+    input {
+        font-family: "quicksandlight", Verdana, sans-serif;
+    }
+
+    #holidaySubmit:hover {
+        box-shadow: 0 12px 16px 0 rgba(0, 0, 0, 0.24), 0 17px 50px 0 rgba(0, 0, 0, 0.19);
+    }
+
+    /*
+    Creates white space at the bottom of the website
+     */
+    .separatorDivAdmin {
+        height: 25vh;
+    }
+
+    /*
+    This section relates to the preview that is generated by adding a holiday
+     */
+
+    .holidayPreviewHeader {
+        text-align: center;
+        font-family: "quicksandlight", Verdana, sans-serif;
+    }
+    .holidayDivPreview {
+        display: grid;
+        grid-template-areas:
+    "holidayTitle holidayTitle"
+    "locationName catDesc"
+    "holidayDescription holidayDescription"
+    "holidayDuration holidayPrice";
+        text-align: center;
+        border: 0;
+        border-radius: 15px;
+        box-shadow: 0 2px 6px hsla(0, 0%, 0%, 0.2);
+        grid-template-rows: 20% 15% auto 15%;
+        height: 100%;
+        width: 80%;
+        margin: auto;
+        font-family: "quicksandlight", Verdana, sans-serif;
+    }
+
+
+.holidayDivPreview .holidayTitlePreview {
+    grid-area: holidayTitle;
+
+}
+
+.holidayDivPreview .locationNamePreview {
+    grid-area: locationName;
+    margin-top:25px;
+    margin-bottom: 50px;
+    color: #0f2290;
+}
+
+.holidayDivPreview .catDescPreview {
+    grid-area: catDesc;
+    margin-top: 25px;
+    margin-bottom: 50px;
+    color: #0f2290;
+}
+
+.holidayDivPreview .holidayDescriptionPreview {
+    grid-area: holidayDescription;
+    font-size: 14px;
+    margin: auto;
+    padding-left: 5px;
+    padding-right: 5px;
+
+}
+
+.holidayDivPreview .holidayDurationPreview {
+    grid-area: holidayDuration;
+    border-radius: 0 0 0 15px;
+    padding-left: 10px;
+    padding-top: 10px;
+}
+
+.holidayDivPreview .holidayPricePreview {
+    grid-area: holidayPrice;
+    border-radius: 0 0 15px 0;
+    padding-right: 10px;
+    padding-top: 10px;
+}
+
+.holidayDivPreview .holidayDurationPreview, .holidayDivPreview .holidayPricePreview {
+    background: #d7d7d7;
+}
+
+.separatorDivPreview{
+    height: 50vh;
+}
+
+
+/*
+Stylings for the credits page
+ */
+
+    /*
+    Styling the header and the two text containers
+     */
+    .creditsHeader{
+        text-align: center;
+    }
+    .references, .webSecurity, .creditsFooter{
+        margin: auto;
+        width: 80%;
+        border: 0;
+        border-radius: 15px;
+        box-shadow: 0 2px 6px hsla(0, 0%, 0%, 0.2);
+    }
+    .references h3, .webSecurity h3, .creditsFooter h4{
+        text-align: center;
+        padding: 10px;
+    }
+    .references p, .webSecurity p, .creditsFooter p{
+        padding: 10px;
+    }
+
+    .creditsFooter{
+        width: 60%;
+    }
+    /*
+    Creates whitespace at the bottom of the document
+     */
+    .separatorDivCredits{
+        height: 50vh
+    }
+
+}
+
