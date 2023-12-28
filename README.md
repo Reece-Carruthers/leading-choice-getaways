@@ -1,10 +1,10 @@
-A year 1 project at Northumbria University (2020).
+A year 1 assignment at Northumbria University (2019-2020). Scored 85/100
 
 The task was to create a responsive website for a travel agents called 'Leading Choice Getaways'. To create the website I was only allowed to use basic HTML, CSS and JavaScript alongside PHP for interacting with a SQLite database.
 
 The repo contains all code and wireframe mock-ups of the website.
 
-This was a good introduction to web technologies. If I were to go back to this task I would love to use a framework for the front-end such as React and perhaps a CSS framework like Boostrap or Tailwind.
+This was a good introduction to web technologies. If I were to go back to this task I would love to use a framework for the front-end such as React and perhaps a CSS framework like Boostrap or Tailwind. I would also like to organise the code.
 
 ![chrome-capture-2023-12-20](https://github.com/Reece-Carruthers/leading-choice-getaways/assets/99188015/36da6736-02a5-4310-8dac-6ce9cfb94122)
 
